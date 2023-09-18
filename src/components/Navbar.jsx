@@ -1,12 +1,15 @@
 import React from 'react'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faUser } from '@fortawesome/free-solid-svg-icons'
+import useThemeStore from '../context'
 const Navbar = () => {
-    const navItems = ['home', 'profile', 'theme', 'logout'];
+  const {darkTheme} = useThemeStore();
   return (
-      <div className='flex flex-col text-xl justify-center items-center fixed left-10 top-32 bg-pink-50 w-[15%] text-center shadow-lg'>
-        {navItems.map(el=><li key={el} className='w-full py-5 bg-inherit text-purple-950 list-none active:bg-blue-500'>{el}</li>)}   
+    <div className=' mt-24 flex lg:flex-col dark:bg-slate-700 bg-gray-200 text-xl justify-center items-center md:fixed md:left-10 md:top-32 md:w-[15%] md:text-center shadow-lg'>
+      <button className='p-5'><FontAwesomeIcon icon={faHome} color={darkTheme?'white':'black' } /></button> 
+      <button className='p-5'><FontAwesomeIcon icon={faUser} color={darkTheme?'white':'black' }/></button>
+<button className='px-5 p-3 mb-2 bg-black rounded-full text-slate-200 font-semibold lg:text-xl text-lg hover:bg-white hover:text-black 'style={{ whiteSpace: 'nowrap' }}>Create Post</button>
     </div>
   )
 }
-
 export default Navbar
