@@ -6,10 +6,13 @@ function App() {
   const { darkTheme } = useThemeStore();
   return (
     <div className={darkTheme ? 'dark' : ''}>
-    <div className="min-h-screen bg-[rgb(248,248,244)] dark:bg-slate-900 mx-auto">
+    <div className="min-h-screen bg-[rgb(221,221,220)] dark:bg-[#1f1b24] mx-auto pt-[70px]">
         <Header />
       <Navbar />
-      <MainContent/>
+        <MainContent />
+        <MainContent />
+        <MainContent />
+        <MainContent/>
       </div>
       </div>
   );
