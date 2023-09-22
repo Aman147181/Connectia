@@ -1,13 +1,15 @@
 import { create } from "zustand";
 
 const useThemeStore = create((set) => ({
+
+  loggedUser: null,
+  setLoggedUser: (data) => set({loggedUser: data }),
+  logout: () => set({ loggedUser: null }),
+
+
   darkTheme: true,
-  isLoggedIn: false,
   toggleDarkTheme: () => {
     set((state) => ({ darkTheme: !state.darkTheme }));
-  },
-  setLogin: () => {
-    set((state) => ({ isLoggedIn: !state.isLoggedIn   }));
   },
 }));
 

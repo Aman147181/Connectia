@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Post from './Post';
-import { Databases } from 'appwrite';
-import client from '../appwriteConfig';
+import { databases } from '../appwriteConfig';
 
 const MainContent = () => {
   const [posts, setPosts] = useState([]); // Change 'post' to 'posts' to store an array of posts
-  const database = new Databases(client);
 
   useEffect(() => {
     getPost();
@@ -13,7 +11,7 @@ const MainContent = () => {
 
   const getPost = async () => {
     try {
-      const response = await database.listDocuments(
+      const response = await databases.listDocuments(
         '650d707b926aa993a711',
         '650d7088029ec473d0ca',   
       );
@@ -28,7 +26,7 @@ const MainContent = () => {
     <div className='py-20'>
   <div className=" bg-white dark:bg-slate-800 shadow-xl rounded-2xl mx-auto my-10 max-w-md md:max-w-2xl px-10 py-5">
     <textarea
-      className="bg-gray-200 dark:bg-gray-700 w-full rounded-lg shadow border p-2"
+      className="bg-gray-100 dark:bg-gray-700 w-full rounded-lg shadow border dark:text-slate-100 p-2"
       rows={5}
       placeholder="Speak your mind"
       defaultValue={""}
