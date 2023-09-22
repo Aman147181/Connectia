@@ -1,8 +1,8 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 const Login = () => {
   return (
-    <div className="max-h-screen  flex items-center justify-center bg-[rgb(248,248,246)] dark:bg-[#1f1b24]">
+    <div className="max-h-screen flex items-center justify-center bg-[rgb(248,248,246)] dark:bg-[#1f1b24]">
       <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form className="space-y-6" action="#">
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">
@@ -47,14 +47,19 @@ const Login = () => {
           >
             Login to your account
           </button>
+          <button className="px-4 mx-auto py-2 w-full border flex border-slate-200 rounded-lg text-slate-200 hover:border-slate-400 hover:text-slate-400 hover:shadow transition duration-150">
+            <img
+              className="w-6 h-6"
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              loading="lazy"
+              alt="google logo"
+            />
+            <span className="pl-4">Sign in with Google</span>
+          </button>
+
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Not registered?{" "}
-            <a
-              href="#"
-              className="text-blue-700 hover:underline dark:text-blue-500"
-            >
-              Create account
-            </a>
+            <NavLink to='/register'  className="text-blue-700 hover:underline dark:text-blue-500">Create account</NavLink>
           </div>
         </form>
       </div>

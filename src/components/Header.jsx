@@ -6,7 +6,7 @@ const Header = () => {
   const {  darkTheme ,toggleDarkTheme } = useThemeStore();
   return (
     
-      <div className='flex fixed top-0 justify-around lg:justify-between items-center w-screen h-[70px] bg-inherit'>
+      <div className='flex fixed top-0 justify-around lg:justify-between items-center w-screen z-10 h-[70px] bg-[rgb(242,243,244)] dark:bg-[#1f1b24]'>
           <div className='lg:mx-20 mx-5 font-dance text-6xl font-extrabold text-purple-600'>Connectia</div>
          
           <button className='lg:mx-20'
