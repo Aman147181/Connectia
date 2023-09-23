@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Post = ({post}) => {
+const Post = ({ post }) => {
   return (
     <>
   <div className="flex bg-white dark:bg-slate-800 shadow-xl rounded-2xl mx-auto my-10 max-w-md md:max-w-2xl px-10 py-5">
@@ -17,7 +17,7 @@ const Post = ({post}) => {
                 { post.user_name}{" "}
           </h2>
         </div>
-        <p className="text-gray-700 dark:text-gray-300">{post.date} </p>
+        <p className="text-gray-700 dark:text-gray-300">{(post.date)} </p>
         <p className="mt-3 text-gray-700 dark:text-gray-300 text-sm">
           {post.Body}
         </p>

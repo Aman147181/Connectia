@@ -1,9 +1,44 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react';
+import Post from './Post';
+import { databases } from '../appwriteConfig';
+import { account } from '../appwriteConfig';
 const Profile = () => {
+  const [postlists, setPostLists] = useState([]); 
+  const [postName, setPostName] = useState(''); 
+  const getUser = async () => {
+    const currentAccount = await account.get();
+    console.log(currentAccount);
+    setPostName(currentAccount.name);
+  }
+
+
+
+
+  useEffect(() => {
+    getPostList();
+    getUser();
+  }, []);
+
+  const getPostList = async () => {
+    try {
+      const response = await databases.listDocuments(
+        '650d707b926aa993a711',
+        '650d7088029ec473d0ca',   
+      );
+      console.log(response); // Success
+      setPostLists(response.documents); // Update state with the fetched documents
+    } catch (error) {
+      console.error(error); // Failure
+    }
+  };
+    
+
+
   return (
-    <div className=' w-10/12 md:w-[55%] mt-20 flex-col gap-2 h-56 shadow-lg mx-auto rounded-2xl bg-white text-[#343336] dark:bg-[#343336] dark:text-white'>
-   Profile 
+  <div className='py-10'>
+    {postlists.filter((el)=>{return el.user_name===postName}).map((post) => (
+      <Post key={post.$id} post={post} />
+    ))}
   </div>
   )
 }
